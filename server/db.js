@@ -4,7 +4,8 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const dbPath = path.join(__dirname, 'voting_system.db');
+const isVercel = process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME;
+const dbPath = isVercel ? path.join('/tmp', 'voting_system.db') : path.join(__dirname, 'voting_system.db');
 
 let db;
 try {
