@@ -59,9 +59,6 @@ A modern, responsive, and mobile-friendly web application for college student el
 
 4. Open `http://localhost:3000` in your browser.
 
----
 
-## 🔒 Admin Credentials
 
-- **Username**: `admin`
-- **Password**: `msecmca`
+
