@@ -118,16 +118,16 @@ app.post('/api/votes', (req, res) => {
       return res.status(403).json({ error: 'Voting is currently closed or paused.' });
     }
 
-    const { president_id, vice_president_id, secretary_id, joint_secretary_id, treasurer_id } = req.body;
+    const { president_id, vice_president_id, secretary_id, joint_secretary_id, treasurer_id, treasurer_jr_id } = req.body;
     if (!president_id || !vice_president_id || !secretary_id || !joint_secretary_id || !treasurer_id) {
       return res.status(400).json({ error: 'Please select a candidate for every position.' });
     }
 
     const stmt = db.prepare(`
-      INSERT INTO votes (president_id, vice_president_id, secretary_id, joint_secretary_id, treasurer_id)
-      VALUES (?, ?, ?, ?, ?)
+      INSERT INTO votes (president_id, vice_president_id, secretary_id, joint_secretary_id, treasurer_id, treasurer_jr_id)
+      VALUES (?, ?, ?, ?, ?, ?)
     `);
-    const result = stmt.run(president_id, vice_president_id, secretary_id, joint_secretary_id, treasurer_id);
+    const result = stmt.run(president_id, vice_president_id, secretary_id, joint_secretary_id, treasurer_id, treasurer_jr_id || null);
 
     res.status(201).json({ success: true, vote_id: result.lastInsertRowid });
   } catch (error) {
@@ -161,6 +161,7 @@ app.get('/api/admin/results', (req, res) => {
       if (v.secretary_id && voteCounts[v.secretary_id] !== undefined) voteCounts[v.secretary_id]++;
       if (v.joint_secretary_id && voteCounts[v.joint_secretary_id] !== undefined) voteCounts[v.joint_secretary_id]++;
       if (v.treasurer_id && voteCounts[v.treasurer_id] !== undefined) voteCounts[v.treasurer_id]++;
+      if (v.treasurer_jr_id && voteCounts[v.treasurer_jr_id] !== undefined) voteCounts[v.treasurer_jr_id]++;
     });
 
     // Group by position
@@ -169,7 +170,8 @@ app.get('/api/admin/results', (req, res) => {
       { id: 'vice_president', name: 'Vice President' },
       { id: 'secretary', name: 'Secretary' },
       { id: 'joint_secretary', name: 'Joint Secretary' },
-      { id: 'treasurer', name: 'Treasurer' }
+      { id: 'treasurer', name: 'Treasurer' },
+      { id: 'treasurer_jr', name: 'Treasurer Jr.' }
     ];
 
     const results = positions.map(pos => {

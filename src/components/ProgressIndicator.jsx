@@ -3,8 +3,8 @@ import { POSITIONS } from '../context/ElectionContext';
 import { Check } from 'lucide-react';
 
 export const ProgressIndicator = ({ currentStep, selections }) => {
-  // If outside voting wizard steps (1..5), don't show
-  if (currentStep < 1 || currentStep > 5) return null;
+  // If outside voting wizard steps (1..POSITIONS.length), don't show
+  if (currentStep < 1 || currentStep > POSITIONS.length) return null;
 
   const activePosition = POSITIONS[currentStep - 1];
 
@@ -21,7 +21,7 @@ export const ProgressIndicator = ({ currentStep, selections }) => {
           </h2>
         </div>
         <div className="bg-[#174D3A] text-white px-4 py-1.5 rounded-2xl text-sm font-black tracking-wider shadow-sm">
-          0{currentStep} / 05
+          0{currentStep} / 0{POSITIONS.length}
         </div>
       </div>
 
@@ -72,12 +72,12 @@ export const ProgressIndicator = ({ currentStep, selections }) => {
       <div className="md:hidden bg-white p-3 rounded-xl border border-[#DDE4D8]">
         <div className="flex items-center justify-between mb-2 text-xs font-bold text-[#174D3A]">
           <span>{activePosition?.label}</span>
-          <span>{Math.round((currentStep / 5) * 100)}%</span>
+          <span>{Math.round((currentStep / POSITIONS.length) * 100)}%</span>
         </div>
         <div className="w-full h-2.5 bg-[#F7F8E8] rounded-full overflow-hidden border border-[#DDE4D8]">
           <div
             className="h-full bg-[#174D3A] transition-all duration-300 rounded-full"
-            style={{ width: `${(currentStep / 5) * 100}%` }}
+            style={{ width: `${(currentStep / POSITIONS.length) * 100}%` }}
           ></div>
         </div>
       </div>

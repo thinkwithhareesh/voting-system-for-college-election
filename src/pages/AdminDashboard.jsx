@@ -557,37 +557,48 @@ export const AdminDashboard = ({ onClose }) => {
                       </div>
                     );
                   })()}
-                </div>
-              </div>
 
-              {/* Treasurer Coordinator - TOP 3 CANDIDATES */}
-              <div className="pt-4 border-t border-[#DDE4D8]">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xs font-black text-[#2F7659] uppercase tracking-widest">
-                    Treasurer Coordinator — Top 3 Winners (Highest Votes)
-                  </h3>
-                  <span className="text-xs font-extrabold text-emerald-800 bg-emerald-100 px-3 py-0.5 rounded-full">
-                    Top 3 Selected
-                  </span>
-                </div>
+                  {/* Treasurer Winner (MCA 2nd Year) */}
+                  {(() => {
+                    const win = getWinner('treasurer');
+                    return (
+                      <div className="p-5 rounded-2xl bg-amber-50/70 border border-amber-200/80 flex items-center space-x-4 relative overflow-hidden">
+                        <div className="absolute top-2 right-2 bg-amber-500 text-white p-1 rounded-full text-xs shadow">
+                          <Crown className="w-4 h-4" />
+                        </div>
+                        <img src={win?.image_url} alt={win?.name} className="w-16 h-16 rounded-2xl object-contain bg-white p-1 border border-amber-300" />
+                        <div>
+                          <span className="text-[11px] font-black uppercase tracking-wider text-amber-800">
+                            TREASURER WINNER 🏆
+                          </span>
+                          <h4 className="text-lg font-black text-[#174D3A] mt-0.5">{win?.name || 'N/A'}</h4>
+                          <p className="text-xs text-[#718078] font-bold">{win?.department} • {win?.candidate_class}</p>
+                          <p className="text-xs text-amber-900 font-extrabold mt-1">{win?.vote_count || 0} Votes ({win?.percentage || 0}%)</p>
+                        </div>
+                      </div>
+                    );
+                  })()}
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {getTop3Treasurers().map((cand, idx) => (
-                    <div key={cand.id} className="p-5 rounded-2xl bg-[#F7F8E8] border border-[#DDE4D8] relative flex items-center space-x-4">
-                      <div className="w-8 h-8 rounded-full bg-[#174D3A] text-white flex items-center justify-center font-black text-xs flex-shrink-0">
-                        #{idx + 1}
+                  {/* Treasurer Jr. Winner (MCA 1st Year) */}
+                  {(() => {
+                    const win = getWinner('treasurer_jr');
+                    return (
+                      <div className="p-5 rounded-2xl bg-amber-50/70 border border-amber-200/80 flex items-center space-x-4 relative overflow-hidden">
+                        <div className="absolute top-2 right-2 bg-amber-500 text-white p-1 rounded-full text-xs shadow">
+                          <Crown className="w-4 h-4" />
+                        </div>
+                        <img src={win?.image_url} alt={win?.name} className="w-16 h-16 rounded-2xl object-contain bg-white p-1 border border-amber-300" />
+                        <div>
+                          <span className="text-[11px] font-black uppercase tracking-wider text-amber-800">
+                            TREASURER JR. WINNER 🏆
+                          </span>
+                          <h4 className="text-lg font-black text-[#174D3A] mt-0.5">{win?.name || 'N/A'}</h4>
+                          <p className="text-xs text-[#718078] font-bold">{win?.department} • {win?.candidate_class}</p>
+                          <p className="text-xs text-amber-900 font-extrabold mt-1">{win?.vote_count || 0} Votes ({win?.percentage || 0}%)</p>
+                        </div>
                       </div>
-                      <img src={cand.image_url} alt={cand.name} className="w-14 h-14 rounded-2xl object-contain bg-white p-1 border border-[#DDE4D8]" />
-                      <div>
-                        <span className="text-[10px] font-black uppercase text-[#2F7659]">
-                          Rank #{idx + 1} Winner
-                        </span>
-                        <h4 className="text-base font-black text-[#174D3A] mt-0.5">{cand.name}</h4>
-                        <p className="text-xs text-[#718078]">{cand.department} • {cand.candidate_class}</p>
-                        <p className="text-xs font-black text-[#174D3A] mt-1">{cand.vote_count} Votes ({cand.percentage}%)</p>
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })()}
                 </div>
               </div>
 

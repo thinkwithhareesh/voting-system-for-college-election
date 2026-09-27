@@ -7,7 +7,8 @@ export const POSITIONS = [
   { id: 'vice_president', title: 'VICE PRESIDENT', label: 'Vice President', step: 2 },
   { id: 'secretary', title: 'SECRETARY', label: 'Secretary', step: 3 },
   { id: 'joint_secretary', title: 'JOINT SECRETARY', label: 'Joint Secretary', step: 4 },
-  { id: 'treasurer', title: 'TREASURER', label: 'Treasurer', step: 5 }
+  { id: 'treasurer', title: 'TREASURER', label: 'Treasurer', step: 5 },
+  { id: 'treasurer_jr', title: 'TREASURER JR.', label: 'Treasurer Jr.', step: 6 }
 ];
 
 export const DEFAULT_CANDIDATES = [
@@ -28,13 +29,13 @@ export const DEFAULT_CANDIDATES = [
   { id: 'jsec-3', position_id: 'joint_secretary', name: 'H.P. MEENAKSHI', department: 'MCA', candidate_class: 'MCA 1st Year', image_url: '/uploads/meenakshi.jpg', symbol_url: '🌸' },
 
   { id: 'tre-1', position_id: 'treasurer', name: 'R. KIRUTHIKA', department: 'MCA', candidate_class: 'MCA 2nd Year', image_url: '/uploads/r_kiruthika.png', symbol_url: '💰' },
-  { id: 'tre-2', position_id: 'treasurer', name: 'B. SANDHIYA', department: 'MCA', candidate_class: 'MCA 1st Year', image_url: '/uploads/b_sandhiya.png', symbol_url: '⚖️' },
+  { id: 'tre-2', position_id: 'treasurer_jr', name: 'B. SANDHIYA', department: 'MCA', candidate_class: 'MCA 1st Year', image_url: '/uploads/b_sandhiya.png', symbol_url: '⚖️' },
   { id: 'tre-3', position_id: 'treasurer', name: 'S. DHARSHINI', department: 'MCA', candidate_class: 'MCA 2nd Year', image_url: '/uploads/s_dharshini.jpg', symbol_url: '🎯' },
-  { id: 'tre-4', position_id: 'treasurer', name: 'SHAJIRA', department: 'MCA', candidate_class: 'MCA 1st Year', image_url: '/uploads/shajira.png', symbol_url: '💎' }
+  { id: 'tre-4', position_id: 'treasurer_jr', name: 'SHAJIRA', department: 'MCA', candidate_class: 'MCA 1st Year', image_url: '/uploads/shajira.png', symbol_url: '💎' }
 ];
 
 export const ElectionProvider = ({ children }) => {
-  // Step: 0 = Home, 1..5 = Voting pages, 6 = Review, 7 = Success
+  // Step: 0 = Home, 1..6 = Voting pages, 7 = Review, 8 = Success
   const [currentStep, setCurrentStep] = useState(0);
   const [electionStatus, setElectionStatus] = useState('ACTIVE');
   const [candidates, setCandidates] = useState(DEFAULT_CANDIDATES);
@@ -48,7 +49,8 @@ export const ElectionProvider = ({ children }) => {
     vice_president: null,
     secretary: null,
     joint_secretary: null,
-    treasurer: null
+    treasurer: null,
+    treasurer_jr: null
   });
 
   // Admin Auth State
@@ -104,7 +106,7 @@ export const ElectionProvider = ({ children }) => {
 
   // Step navigation
   const nextStep = () => {
-    setCurrentStep(prev => Math.min(prev + 1, 7));
+    setCurrentStep(prev => Math.min(prev + 1, POSITIONS.length + 2));
   };
 
   const prevStep = () => {
@@ -122,7 +124,8 @@ export const ElectionProvider = ({ children }) => {
       vice_president: null,
       secretary: null,
       joint_secretary: null,
-      treasurer: null
+      treasurer: null,
+      treasurer_jr: null
     });
     setCurrentStep(0);
   };
@@ -137,7 +140,8 @@ export const ElectionProvider = ({ children }) => {
         vice_president_id: selections.vice_president?.id,
         secretary_id: selections.secretary?.id,
         joint_secretary_id: selections.joint_secretary?.id,
-        treasurer_id: selections.treasurer?.id
+        treasurer_id: selections.treasurer?.id,
+        treasurer_jr_id: selections.treasurer_jr?.id
       };
 
       const res = await fetch('/api/votes', {
@@ -147,15 +151,15 @@ export const ElectionProvider = ({ children }) => {
       }).catch(() => null);
 
       if (res && res.ok) {
-        setCurrentStep(7);
+        setCurrentStep(POSITIONS.length + 2);
         return { success: true };
       }
 
       // Fallback for Vercel/Static mode
-      setCurrentStep(7);
+      setCurrentStep(POSITIONS.length + 2);
       return { success: true };
     } catch (err) {
-      setCurrentStep(7);
+      setCurrentStep(POSITIONS.length + 2);
       return { success: true };
     } finally {
       setSubmitting(false);

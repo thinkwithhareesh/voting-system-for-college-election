@@ -45,7 +45,7 @@ export const VotingWizard = () => {
       <div className="mt-4 bg-white rounded-3xl p-6 sm:p-8 border border-[#DDE4D8] shadow-soft">
         <div className="text-center max-w-xl mx-auto mb-8">
           <span className="text-xs font-black tracking-widest text-[#2F7659] uppercase bg-[#DCEBDD] px-3 py-1 rounded-full">
-            Position 0{currentStep} of 05
+            Position 0{currentStep} of 0{POSITIONS.length}
           </span>
           <h2 className="text-3xl sm:text-4xl font-black text-[#174D3A] tracking-tight mt-2">
             {activePosition.title}

@@ -26,7 +26,7 @@ export const ReviewPage = () => {
           REVIEW YOUR VOTE
         </h2>
         <p className="text-sm text-[#718078] mt-2 max-w-lg mx-auto">
-          Please review your selected candidates for all 5 positions. You can edit any selection before final submission.
+          Please review your selected candidates for all {POSITIONS.length} positions. You can edit any selection before final submission.
         </p>
       </div>
 

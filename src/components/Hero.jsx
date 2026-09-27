@@ -1,5 +1,5 @@
 import React from 'react';
-import { useElection } from '../context/ElectionContext';
+import { useElection, POSITIONS } from '../context/ElectionContext';
 import { Vote, ArrowRight, ShieldAlert, CheckCircle2, Lock } from 'lucide-react';
 
 export const Hero = () => {
@@ -37,7 +37,7 @@ export const Hero = () => {
           </p>
 
           <p className="text-sm sm:text-base text-white/80 max-w-xl mb-8 leading-relaxed">
-            Welcome to the official student election portal. Please select one candidate for each of the 5 positions to submit your vote.
+            Welcome to the official student election portal. Please select one candidate for each of the {POSITIONS.length} positions to submit your vote.
           </p>
 
           {/* Start Button or Status Alert */}
@@ -95,11 +95,11 @@ export const Hero = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
         <div className="bg-white p-5 rounded-2xl border border-[#DDE4D8] shadow-sm flex items-start space-x-4">
           <div className="w-10 h-10 rounded-xl bg-[#DCEBDD] text-[#174D3A] flex items-center justify-center font-bold text-base flex-shrink-0">
-            5
+            {POSITIONS.length}
           </div>
           <div>
-            <h4 className="font-bold text-[#174D3A] text-sm">5 Key Positions</h4>
-            <p className="text-xs text-[#718078] mt-1">President, Vice President, Secretary, Joint Secretary & Treasurer</p>
+            <h4 className="font-bold text-[#174D3A] text-sm">{POSITIONS.length} Key Positions</h4>
+            <p className="text-xs text-[#718078] mt-1">President, Vice President, Secretary, Joint Secretary, Treasurer & Treasurer Jr.</p>
           </div>
         </div>
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ElectionProvider, useElection } from './context/ElectionContext';
+import { ElectionProvider, useElection, POSITIONS } from './context/ElectionContext';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { VotingWizard } from './pages/VotingWizard';
@@ -32,9 +32,9 @@ const MainApp = () => {
 
       <main className="flex-grow">
         {currentStep === 0 && <Hero />}
-        {currentStep >= 1 && currentStep <= 5 && <VotingWizard />}
-        {currentStep === 6 && <ReviewPage />}
-        {currentStep === 7 && <SuccessPage />}
+        {currentStep >= 1 && currentStep <= POSITIONS.length && <VotingWizard />}
+        {currentStep === POSITIONS.length + 1 && <ReviewPage />}
+        {currentStep === POSITIONS.length + 2 && <SuccessPage />}
       </main>
 
       <Footer />

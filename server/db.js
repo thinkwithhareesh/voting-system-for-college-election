@@ -49,6 +49,7 @@ db.exec(`
     secretary_id TEXT NOT NULL,
     joint_secretary_id TEXT NOT NULL,
     treasurer_id TEXT NOT NULL,
+    treasurer_jr_id TEXT,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
   );
 
@@ -59,6 +60,13 @@ db.exec(`
     closed_at DATETIME
   );
 `);
+
+// Migration helper for votes table
+try {
+  db.exec("ALTER TABLE votes ADD COLUMN treasurer_jr_id TEXT");
+} catch (e) {
+  // Column already exists
+}
 
 // Insert default settings if empty
 const settingsCount = db.prepare('SELECT COUNT(*) as count FROM election_settings').get();
@@ -73,15 +81,13 @@ if (adminCount.count === 0) {
 }
 
 // Insert position definitions
-const posCount = db.prepare('SELECT COUNT(*) as count FROM positions').get();
-if (posCount.count === 0) {
-  const insertPos = db.prepare('INSERT INTO positions (id, name, display_order) VALUES (?, ?, ?)');
-  insertPos.run('president', 'President', 1);
-  insertPos.run('vice_president', 'Vice President', 2);
-  insertPos.run('secretary', 'Secretary', 3);
-  insertPos.run('joint_secretary', 'Joint Secretary', 4);
-  insertPos.run('treasurer', 'Treasurer', 5);
-}
+const insertPos = db.prepare('INSERT OR IGNORE INTO positions (id, name, display_order) VALUES (?, ?, ?)');
+insertPos.run('president', 'President', 1);
+insertPos.run('vice_president', 'Vice President', 2);
+insertPos.run('secretary', 'Secretary', 3);
+insertPos.run('joint_secretary', 'Joint Secretary', 4);
+insertPos.run('treasurer', 'Treasurer', 5);
+insertPos.run('treasurer_jr', 'Treasurer Jr.', 6);
 
 // Seed default candidates if empty
 const candidateCount = db.prepare('SELECT COUNT(*) as count FROM candidates').get();
@@ -112,11 +118,13 @@ if (candidateCount.count === 0) {
     { id: 'jsec-2', position_id: 'joint_secretary', name: 'N. MAKESH', department: 'MCA', candidate_class: 'MCA 1st Year', image_url: '/uploads/n_makesh.jpg', symbol_url: '🌿' },
     { id: 'jsec-3', position_id: 'joint_secretary', name: 'H.P. MEENAKSHI', department: 'MCA', candidate_class: 'MCA 1st Year', image_url: '/uploads/meenakshi.jpg', symbol_url: '🌸' },
 
-    // Treasurer / Treasure Coordinator (4)
+    // Treasurer (2) - MCA 2nd Year
     { id: 'tre-1', position_id: 'treasurer', name: 'R. KIRUTHIKA', department: 'MCA', candidate_class: 'MCA 2nd Year', image_url: '/uploads/r_kiruthika.png', symbol_url: '💰' },
-    { id: 'tre-2', position_id: 'treasurer', name: 'B. SANDHIYA', department: 'MCA', candidate_class: 'MCA 1st Year', image_url: '/uploads/b_sandhiya.png', symbol_url: '⚖️' },
     { id: 'tre-3', position_id: 'treasurer', name: 'S. DHARSHINI', department: 'MCA', candidate_class: 'MCA 2nd Year', image_url: '/uploads/s_dharshini.jpg', symbol_url: '🎯' },
-    { id: 'tre-4', position_id: 'treasurer', name: 'SHAJIRA', department: 'MCA', candidate_class: 'MCA 1st Year', image_url: '/uploads/shajira.png', symbol_url: '💎' }
+
+    // Treasurer Jr. (2) - MCA 1st Year
+    { id: 'tre-2', position_id: 'treasurer_jr', name: 'B. SANDHIYA', department: 'MCA', candidate_class: 'MCA 1st Year', image_url: '/uploads/b_sandhiya.png', symbol_url: '⚖️' },
+    { id: 'tre-4', position_id: 'treasurer_jr', name: 'SHAJIRA', department: 'MCA', candidate_class: 'MCA 1st Year', image_url: '/uploads/shajira.png', symbol_url: '💎' }
   ];
 
   for (const c of initialCandidates) {
