@@ -29,8 +29,9 @@ export const DEFAULT_CANDIDATES = [
   { id: 'jsec-3', position_id: 'joint_secretary', name: 'H.P. MEENAKSHI', department: 'MCA', candidate_class: 'MCA 1st Year', image_url: '/uploads/meenakshi.jpg', symbol_url: '🌸' },
 
   { id: 'tre-1', position_id: 'treasurer', name: 'R. KIRUTHIKA', department: 'MCA', candidate_class: 'MCA 2nd Year', image_url: '/uploads/r_kiruthika.png', symbol_url: '💰' },
-  { id: 'tre-2', position_id: 'treasurer_jr', name: 'B. SANDHIYA', department: 'MCA', candidate_class: 'MCA 1st Year', image_url: '/uploads/b_sandhiya.png', symbol_url: '⚖️' },
   { id: 'tre-3', position_id: 'treasurer', name: 'S. DHARSHINI', department: 'MCA', candidate_class: 'MCA 2nd Year', image_url: '/uploads/s_dharshini.jpg', symbol_url: '🎯' },
+  { id: 'tre-5', position_id: 'treasurer', name: 'S.SARAN KUMAR', department: 'MCA', candidate_class: 'MCA 2nd Year', image_url: '/uploads/saran_kumar.jpg', symbol_url: '⭐' },
+  { id: 'tre-2', position_id: 'treasurer_jr', name: 'B. SANDHIYA', department: 'MCA', candidate_class: 'MCA 1st Year', image_url: '/uploads/b_sandhiya.png', symbol_url: '⚖️' },
   { id: 'tre-4', position_id: 'treasurer_jr', name: 'SHAJIRA', department: 'MCA', candidate_class: 'MCA 1st Year', image_url: '/uploads/shajira.png', symbol_url: '💎' }
 ];
 

@@ -118,9 +118,10 @@ if (candidateCount.count === 0) {
     { id: 'jsec-2', position_id: 'joint_secretary', name: 'N. MAKESH', department: 'MCA', candidate_class: 'MCA 1st Year', image_url: '/uploads/n_makesh.jpg', symbol_url: '🌿' },
     { id: 'jsec-3', position_id: 'joint_secretary', name: 'H.P. MEENAKSHI', department: 'MCA', candidate_class: 'MCA 1st Year', image_url: '/uploads/meenakshi.jpg', symbol_url: '🌸' },
 
-    // Treasurer (2) - MCA 2nd Year
+    // Treasurer (3) - MCA 2nd Year
     { id: 'tre-1', position_id: 'treasurer', name: 'R. KIRUTHIKA', department: 'MCA', candidate_class: 'MCA 2nd Year', image_url: '/uploads/r_kiruthika.png', symbol_url: '💰' },
     { id: 'tre-3', position_id: 'treasurer', name: 'S. DHARSHINI', department: 'MCA', candidate_class: 'MCA 2nd Year', image_url: '/uploads/s_dharshini.jpg', symbol_url: '🎯' },
+    { id: 'tre-5', position_id: 'treasurer', name: 'S.SARAN KUMAR', department: 'MCA', candidate_class: 'MCA 2nd Year', image_url: '/uploads/saran_kumar.jpg', symbol_url: '⭐' },
 
     // Treasurer Jr. (2) - MCA 1st Year
     { id: 'tre-2', position_id: 'treasurer_jr', name: 'B. SANDHIYA', department: 'MCA', candidate_class: 'MCA 1st Year', image_url: '/uploads/b_sandhiya.png', symbol_url: '⚖️' },
