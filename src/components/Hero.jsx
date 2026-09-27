@@ -30,7 +30,7 @@ export const Hero = () => {
 
           {/* Heading */}
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-4 max-w-3xl leading-tight">
-            Mohammad Sathak Engineering College
+            Mohamed Sathak Engineering College Kilakarai
           </h1>
           <p className="text-lg sm:text-xl font-medium text-[#DCEBDD] mb-2">
             Master of Computer Application (MCA)

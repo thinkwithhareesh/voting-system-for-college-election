@@ -43,7 +43,7 @@ export const SuccessPage = () => {
       </h1>
 
       <p className="text-base font-medium text-[#718078] max-w-md mx-auto mb-4">
-        Thank you for participating in the Mohammad Sathak Engineering College MCA election.
+        Thank you for participating in the Mohamed Sathak Engineering College Kilakarai MCA election.
       </p>
 
       {/* Play Chime Audio Button */}

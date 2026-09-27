@@ -1,22 +1,23 @@
-# Mohamed Sathak Engineering College (MSEC) - MCA College Election Voting System
+# Mohamed Sathak Engineering College Kilakarai (MSEC) - MCA College Election Voting System
 
-A modern, responsive, and mobile-friendly web application for college student elections, custom built for **Mohammad Sathak Engineering College Keelakarai - Department of Master of Computer Application (MCA)** by **Hareesh (2025-2027 batch)**.
+A modern, responsive, and mobile-friendly web application for college student elections, custom built for **Mohamed Sathak Engineering College Kilakarai - Department of Master of Computer Application (MCA)** by **Hareesh (2025-2027 batch)**.
 
 ---
 
 ## 🌟 Features
 
-- 🗳️ **Multi-Position Voting Wizard**: Interactive multi-step ballot for 5 student council positions:
-  - **President** (MCA 2nd Year - 3 candidates)
-  - **Vice President** (MCA 1st Year - 3 candidates)
-  - **Secretary** (MCA 2nd Year - 2 candidates)
-  - **Joint Secretary** (MCA 1st Year - 2 candidates)
-  - **Treasurer Coordinator** (MCA 1st & 2nd Year - 4 candidates)
+- 🗳️ **Multi-Position Voting Wizard**: Interactive multi-step ballot for 6 student council positions:
+  - **President** (MCA 2nd Year)
+  - **Vice President** (MCA 1st Year)
+  - **Secretary** (MCA 2nd Year)
+  - **Joint Secretary** (MCA 1st Year)
+  - **Treasurer** (MCA 2nd Year)
+  - **Treasurer Jr.** (MCA 1st Year)
 - 🖼️ **Auto-fitting Candidate Cards**: Responsive grid layouts with candidate photos.
 - 🎵 **Web Audio Chimes**: Synthesized audio chimes upon vote submission.
 - 📊 **Real-time Admin Dashboard**: Live vote counts, percentage stats, and election controls.
-- 🏆 **Winning List & Printable PDF Report**: Instant winner calculation (Top candidate for President, VP, Secretary, Joint Sec, and Top 3 candidates for Treasurer Coordinator) with PDF exporting.
-- 🏫 **Custom Campus Theme**: Styled with Mohamed Sathak Engineering College colors and campus imagery.
+- 🏆 **Winning List & Printable PDF Report**: Instant winner calculation per position with PDF exporting.
+- 🏫 **Custom Campus Theme**: Styled with Mohamed Sathak Engineering College Kilakarai colors and campus imagery.
 
 ---
 

@@ -9,7 +9,7 @@ export const Footer = () => {
         {/* Left Branding */}
         <div className="flex items-center space-x-2 text-[#174D3A] font-bold">
           <Vote className="w-4 h-4 text-[#2F7659]" />
-          <span>Mohammad Sathak Engineering College Keelakarai</span>
+          <span>Mohamed Sathak Engineering College Kilakarai</span>
         </div>
 
         {/* Center Department */}

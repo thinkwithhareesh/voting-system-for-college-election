@@ -199,7 +199,7 @@ export const AdminDashboard = ({ onClose }) => {
             </div>
             <div>
               <h2 className="text-base font-black text-[#174D3A]">Admin Panel</h2>
-              <p className="text-xs text-[#718078]">Mohammad Sathak Engg</p>
+              <p className="text-xs text-[#718078]">Mohamed Sathak Engg</p>
             </div>
           </div>
 
@@ -308,7 +308,7 @@ export const AdminDashboard = ({ onClose }) => {
               <span className="text-xs font-bold uppercase tracking-wider text-[#2F7659] bg-[#DCEBDD] px-2.5 py-0.5 rounded-md">
                 Admin Console
               </span>
-              <span className="text-xs text-[#718078]">Mohammad Sathak Engg College - MCA</span>
+              <span className="text-xs text-[#718078]">Mohamed Sathak Engg College Kilakarai - MCA</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-black text-[#174D3A]">
               {activeTab === 'overview' && 'Election Overview & Analytics'}
@@ -457,7 +457,7 @@ export const AdminDashboard = ({ onClose }) => {
                   OFFICIAL ELECTION REPORT 2026
                 </span>
                 <h1 className="text-2xl sm:text-4xl font-extrabold text-[#174D3A] mt-3">
-                  Mohammad Sathak Engineering College Keelakarai
+                  Mohamed Sathak Engineering College Kilakarai
                 </h1>
                 <p className="text-base font-bold text-[#2F7659] mt-1">
                   Master of Computer Application (MCA) Election
@@ -606,7 +606,7 @@ export const AdminDashboard = ({ onClose }) => {
               <div className="pt-8 border-t border-[#DDE4D8] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-bold text-[#718078]">
                 <div>
                   <p>Certified Official Election Report</p>
-                  <p className="text-[#174D3A] font-extrabold">Mohammad Sathak Engineering College Keelakarai</p>
+                  <p className="text-[#174D3A] font-extrabold">Mohamed Sathak Engineering College Kilakarai</p>
                 </div>
                 <div className="text-center sm:text-right">
                   <p>System Developed by</p>
@@ -623,7 +623,7 @@ export const AdminDashboard = ({ onClose }) => {
           <div className="space-y-6">
             <div className="flex items-center justify-between">
               <p className="text-sm font-semibold text-[#718078]">
-                Manage all registered election candidates for Mohammad Sathak Engineering College.
+                Manage all registered election candidates for Mohamed Sathak Engineering College Kilakarai.
               </p>
               <button
                 onClick={() => { setEditingCandidate(null); setCandidateModalOpen(true); }}

@@ -38,11 +38,11 @@ export const Header = ({ onOpenAdminLogin }) => {
                 MCA 2026
               </span>
               <span className="text-xs font-medium text-[#718078] hidden sm:inline">
-                Keelakarai
+                Kilakarai
               </span>
             </div>
             <h1 className="text-base sm:text-lg font-extrabold text-[#174D3A] tracking-tight leading-none mt-1">
-              Mohammad Sathak Engg College
+              Mohamed Sathak Engg College
             </h1>
           </div>
         </div>
