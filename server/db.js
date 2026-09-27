@@ -93,7 +93,7 @@ if (candidateCount.count === 0) {
 
   const initialCandidates = [
     // President (3)
-    { id: 'pres-1', position_id: 'president', name: 'JAVITH NAZEEM N', department: 'MCA', candidate_class: 'MCA 2nd Year', image_url: '/uploads/javith_nazeem.jpg', symbol_url: '🎓' },
+    { id: 'pres-1', position_id: 'president', name: 'JAVITH NAZEEM N', department: 'MCA', candidate_class: 'MCA 2nd Year', image_url: '/uploads/javith_nazeem.jpg?v=2', symbol_url: '🎓' },
     { id: 'pres-2', position_id: 'president', name: 'LOGA SURIYA A', department: 'MCA', candidate_class: 'MCA 2nd Year', image_url: '/uploads/loga_suriya.jpg', symbol_url: '🚀' },
     { id: 'pres-3', position_id: 'president', name: 'SILMIYA SHIFA', department: 'MCA', candidate_class: 'MCA 2nd Year', image_url: '/uploads/silmiya_shifa.png', symbol_url: '🌟' },
 
