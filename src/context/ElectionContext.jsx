@@ -21,6 +21,7 @@ export const DEFAULT_CANDIDATES = [
 
   { id: 'sec-1', position_id: 'secretary', name: 'S. JEYABHARATHI', department: 'MCA', candidate_class: 'MCA 2nd Year', image_url: '/uploads/jeyabharathi.png', symbol_url: '📚' },
   { id: 'sec-2', position_id: 'secretary', name: 'HAREESH', department: 'MCA', candidate_class: 'MCA 2nd Year', image_url: '/uploads/hareesh.png', symbol_url: '💡' },
+  { id: 'sec-3', position_id: 'secretary', name: 'K.BAVIHA', department: 'MCA', candidate_class: 'MCA 2nd Year', image_url: '/uploads/baviha.jpg', symbol_url: '✨' },
 
   { id: 'jsec-1', position_id: 'joint_secretary', name: 'AYSWARYA', department: 'MCA', candidate_class: 'MCA 1st Year', image_url: '/uploads/ayswarya.png', symbol_url: '🛡️' },
   { id: 'jsec-2', position_id: 'joint_secretary', name: 'N. MAKESH', department: 'MCA', candidate_class: 'MCA 1st Year', image_url: '/uploads/n_makesh.jpg', symbol_url: '🌿' },
