@@ -23,9 +23,18 @@ export const Hero = () => {
         <div className="relative z-10 flex flex-col items-center text-center">
           
           {/* Badge */}
-          <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-[#DCEBDD] border border-white/15 mb-6">
+          <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-[#DCEBDD] border border-white/15 mb-4">
             <span className="w-2 h-2 rounded-full bg-[#DCEBDD] animate-pulse"></span>
             <span>MSEC MCA ELECTION 2026</span>
+          </div>
+
+          {/* Official Banner Image */}
+          <div className="bg-white p-2 sm:p-3 rounded-2xl shadow-md border border-white/20 mb-6 max-w-2xl">
+            <img 
+              src="/msec_banner.webp" 
+              alt="Mohamed Sathak Engineering College Kilakarai" 
+              className="w-full h-auto object-contain max-h-20 sm:max-h-24"
+            />
           </div>
 
           {/* Heading */}

@@ -24,26 +24,23 @@ export const Header = ({ onOpenAdminLogin }) => {
     <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-[#DDE4D8] shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
-        {/* Left: Emblem Logo & College Title */}
+        {/* Left: Official College Banner Logo & Title */}
         <div 
           onClick={handleHomeClick}
-          className="flex items-center space-x-3 cursor-pointer group"
+          className="flex items-center space-x-3 cursor-pointer group py-1"
         >
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#174D3A] to-[#2F7659] flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform duration-200">
-            <Vote className="w-6 h-6" />
-          </div>
-          <div>
-            <div className="flex items-center space-x-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#2F7659] bg-[#DCEBDD] px-2 py-0.5 rounded-md">
-                MCA 2026
-              </span>
-              <span className="text-xs font-medium text-[#718078] hidden sm:inline">
-                Kilakarai
-              </span>
-            </div>
-            <h1 className="text-base sm:text-lg font-extrabold text-[#174D3A] tracking-tight leading-none mt-1">
-              Mohamed Sathak Engg College
-            </h1>
+          <img 
+            src="/msec_banner.webp" 
+            alt="Mohamed Sathak Engineering College Kilakarai" 
+            className="h-10 sm:h-14 w-auto max-w-[220px] sm:max-w-md md:max-w-lg object-contain transition-transform duration-200 group-hover:scale-[1.01]" 
+          />
+          <div className="hidden lg:flex flex-col border-l border-[#DDE4D8] pl-3">
+            <span className="text-[11px] font-black uppercase tracking-wider text-[#2F7659] bg-[#DCEBDD] px-2 py-0.5 rounded-md w-fit">
+              MCA 2026
+            </span>
+            <span className="text-[11px] font-bold text-[#718078] mt-0.5">
+              Kilakarai
+            </span>
           </div>
         </div>
 
