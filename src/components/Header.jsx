@@ -29,20 +29,19 @@ export const Header = ({ onOpenAdminLogin }) => {
           onClick={handleHomeClick}
           className="flex items-center space-x-3 cursor-pointer group"
         >
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#174D3A] to-[#2F7659] flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform duration-200">
-            <Vote className="w-6 h-6" />
-          </div>
+          <img 
+            src="/msec_crest.png" 
+            alt="MSEC Crest Logo" 
+            className="w-12 h-12 object-contain group-hover:scale-105 transition-transform duration-200" 
+          />
           <div>
             <div className="flex items-center space-x-2">
               <span className="text-xs font-bold uppercase tracking-wider text-[#2F7659] bg-[#DCEBDD] px-2 py-0.5 rounded-md">
                 MCA 2026
               </span>
-              <span className="text-xs font-medium text-[#718078] hidden sm:inline">
-                Kilakarai
-              </span>
             </div>
             <h1 className="text-base sm:text-lg font-extrabold text-[#174D3A] tracking-tight leading-none mt-1">
-              Mohamed Sathak Engg College
+              Mohamed Sathak Engineering College Kilakarai
             </h1>
           </div>
         </div>
