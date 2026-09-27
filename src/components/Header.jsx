@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useElection } from '../context/ElectionContext';
-import { Shield, Menu, X, Home, Award } from 'lucide-react';
+import { Vote, Shield, Menu, X, Home, Award } from 'lucide-react';
 
 export const Header = ({ onOpenAdminLogin }) => {
   const { currentStep, goToStep, resetSession, isAdminLoggedIn, electionStatus } = useElection();
@@ -21,68 +21,67 @@ export const Header = ({ onOpenAdminLogin }) => {
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-white border-b border-[#DDE4D8] shadow-sm">
-      {/* Top Banner Row: Full Width College Header Logo */}
-      <div className="w-full bg-white border-b border-[#DDE4D8]/60 py-2 px-3 sm:px-6 flex items-center justify-between">
+    <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-[#DDE4D8] shadow-sm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        
+        {/* Left: Emblem Logo & College Title */}
         <div 
           onClick={handleHomeClick}
-          className="cursor-pointer flex-1 flex items-center justify-start group overflow-hidden"
+          className="flex items-center space-x-3 cursor-pointer group"
         >
-          <img 
-            src="/msec_banner.webp" 
-            alt="Mohamed Sathak Engineering College Kilakarai" 
-            className="h-10 sm:h-14 md:h-16 lg:h-18 w-full max-w-6xl object-contain object-left transition-transform duration-200 group-hover:scale-[1.003]" 
-          />
-        </div>
-        
-        {/* Right Badge */}
-        <div className="hidden sm:flex items-center space-x-2 bg-[#DCEBDD] text-[#174D3A] px-3 py-1.5 rounded-xl text-xs font-black uppercase tracking-wider flex-shrink-0 border border-[#2F7659]/20 ml-2">
-          <span>MCA ELECTION 2026</span>
-        </div>
-      </div>
-
-      {/* Navigation Sub-Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-12 flex items-center justify-between">
-        <div className="flex items-center space-x-2 text-xs font-extrabold text-[#174D3A]">
-          <span className="bg-[#174D3A] text-white px-2.5 py-1 rounded-lg">MSEC MCA</span>
-          <span className="text-[#718078] hidden sm:inline">Kilakarai</span>
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#174D3A] to-[#2F7659] flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform duration-200">
+            <Vote className="w-6 h-6" />
+          </div>
+          <div>
+            <div className="flex items-center space-x-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#2F7659] bg-[#DCEBDD] px-2 py-0.5 rounded-md">
+                MCA 2026
+              </span>
+              <span className="text-xs font-medium text-[#718078] hidden sm:inline">
+                Kilakarai
+              </span>
+            </div>
+            <h1 className="text-base sm:text-lg font-extrabold text-[#174D3A] tracking-tight leading-none mt-1">
+              Mohamed Sathak Engg College
+            </h1>
+          </div>
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-4">
+        <nav className="hidden md:flex items-center space-x-6">
           <button
             onClick={handleHomeClick}
-            className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-extrabold transition-all ${
+            className={`flex items-center space-x-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold transition-all ${
               currentStep === 0 
                 ? 'bg-[#174D3A] text-white shadow-sm' 
                 : 'text-[#294238] hover:bg-[#F7F8E8]'
             }`}
           >
-            <Home className="w-3.5 h-3.5" />
+            <Home className="w-4 h-4" />
             <span>Home</span>
           </button>
 
           <button
             onClick={handleStartVotingClick}
-            className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-extrabold transition-all ${
+            className={`flex items-center space-x-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold transition-all ${
               currentStep >= 1 && currentStep <= 6 
                 ? 'bg-[#174D3A] text-white shadow-sm' 
                 : 'text-[#294238] hover:bg-[#F7F8E8]'
             }`}
           >
-            <Award className="w-3.5 h-3.5" />
+            <Award className="w-4 h-4" />
             <span>Voting Center</span>
           </button>
 
           <button
             onClick={onOpenAdminLogin}
-            className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-bold border transition-all ${
+            className={`flex items-center space-x-2 px-4 py-2 rounded-xl text-sm font-bold border transition-all ${
               isAdminLoggedIn
                 ? 'bg-[#DCEBDD] text-[#174D3A] border-[#2F7659]/30 hover:bg-[#174D3A] hover:text-white'
                 : 'border-[#174D3A] text-[#174D3A] hover:bg-[#174D3A] hover:text-white'
             }`}
           >
-            <Shield className="w-3.5 h-3.5" />
+            <Shield className="w-4 h-4" />
             <span>{isAdminLoggedIn ? 'Admin Panel' : 'Admin Login'}</span>
           </button>
         </nav>
@@ -91,10 +90,10 @@ export const Header = ({ onOpenAdminLogin }) => {
         <div className="flex md:hidden items-center space-x-2">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-1.5 rounded-lg bg-[#F7F8E8] text-[#174D3A] border border-[#DDE4D8] hover:bg-[#DCEBDD] transition-colors text-xs font-bold flex items-center space-x-1"
+            className="p-2.5 rounded-xl bg-[#F7F8E8] text-[#174D3A] border border-[#DDE4D8] hover:bg-[#DCEBDD] transition-colors"
             aria-label="Toggle navigation"
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
