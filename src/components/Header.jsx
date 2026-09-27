@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useElection } from '../context/ElectionContext';
-import { Vote, Shield, Menu, X, Home, Award } from 'lucide-react';
+import { Shield, Menu, X, Home, Award } from 'lucide-react';
 
 export const Header = ({ onOpenAdminLogin }) => {
   const { currentStep, goToStep, resetSession, isAdminLoggedIn, electionStatus } = useElection();
@@ -21,64 +21,68 @@ export const Header = ({ onOpenAdminLogin }) => {
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-[#DDE4D8] shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        
-        {/* Left: Official College Banner Logo & Title */}
+    <header className="sticky top-0 z-40 bg-white border-b border-[#DDE4D8] shadow-sm">
+      {/* Top Banner Row: Full Width College Header Logo */}
+      <div className="w-full bg-white border-b border-[#DDE4D8]/60 py-2 px-3 sm:px-6 flex items-center justify-between">
         <div 
           onClick={handleHomeClick}
-          className="flex items-center space-x-3 cursor-pointer group py-1"
+          className="cursor-pointer flex-1 flex items-center justify-start group overflow-hidden"
         >
           <img 
             src="/msec_banner.webp" 
             alt="Mohamed Sathak Engineering College Kilakarai" 
-            className="h-10 sm:h-14 w-auto max-w-[220px] sm:max-w-md md:max-w-lg object-contain transition-transform duration-200 group-hover:scale-[1.01]" 
+            className="h-10 sm:h-14 md:h-16 lg:h-18 w-full max-w-6xl object-contain object-left transition-transform duration-200 group-hover:scale-[1.003]" 
           />
-          <div className="hidden lg:flex flex-col border-l border-[#DDE4D8] pl-3">
-            <span className="text-[11px] font-black uppercase tracking-wider text-[#2F7659] bg-[#DCEBDD] px-2 py-0.5 rounded-md w-fit">
-              MCA 2026
-            </span>
-            <span className="text-[11px] font-bold text-[#718078] mt-0.5">
-              Kilakarai
-            </span>
-          </div>
+        </div>
+        
+        {/* Right Badge */}
+        <div className="hidden sm:flex items-center space-x-2 bg-[#DCEBDD] text-[#174D3A] px-3 py-1.5 rounded-xl text-xs font-black uppercase tracking-wider flex-shrink-0 border border-[#2F7659]/20 ml-2">
+          <span>MCA ELECTION 2026</span>
+        </div>
+      </div>
+
+      {/* Navigation Sub-Bar */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-12 flex items-center justify-between">
+        <div className="flex items-center space-x-2 text-xs font-extrabold text-[#174D3A]">
+          <span className="bg-[#174D3A] text-white px-2.5 py-1 rounded-lg">MSEC MCA</span>
+          <span className="text-[#718078] hidden sm:inline">Kilakarai</span>
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6">
+        <nav className="hidden md:flex items-center space-x-4">
           <button
             onClick={handleHomeClick}
-            className={`flex items-center space-x-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold transition-all ${
+            className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-extrabold transition-all ${
               currentStep === 0 
                 ? 'bg-[#174D3A] text-white shadow-sm' 
                 : 'text-[#294238] hover:bg-[#F7F8E8]'
             }`}
           >
-            <Home className="w-4 h-4" />
+            <Home className="w-3.5 h-3.5" />
             <span>Home</span>
           </button>
 
           <button
             onClick={handleStartVotingClick}
-            className={`flex items-center space-x-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold transition-all ${
+            className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-extrabold transition-all ${
               currentStep >= 1 && currentStep <= 6 
                 ? 'bg-[#174D3A] text-white shadow-sm' 
                 : 'text-[#294238] hover:bg-[#F7F8E8]'
             }`}
           >
-            <Award className="w-4 h-4" />
+            <Award className="w-3.5 h-3.5" />
             <span>Voting Center</span>
           </button>
 
           <button
             onClick={onOpenAdminLogin}
-            className={`flex items-center space-x-2 px-4 py-2 rounded-xl text-sm font-bold border transition-all ${
+            className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-bold border transition-all ${
               isAdminLoggedIn
                 ? 'bg-[#DCEBDD] text-[#174D3A] border-[#2F7659]/30 hover:bg-[#174D3A] hover:text-white'
                 : 'border-[#174D3A] text-[#174D3A] hover:bg-[#174D3A] hover:text-white'
             }`}
           >
-            <Shield className="w-4 h-4" />
+            <Shield className="w-3.5 h-3.5" />
             <span>{isAdminLoggedIn ? 'Admin Panel' : 'Admin Login'}</span>
           </button>
         </nav>
@@ -87,10 +91,10 @@ export const Header = ({ onOpenAdminLogin }) => {
         <div className="flex md:hidden items-center space-x-2">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2.5 rounded-xl bg-[#F7F8E8] text-[#174D3A] border border-[#DDE4D8] hover:bg-[#DCEBDD] transition-colors"
+            className="p-1.5 rounded-lg bg-[#F7F8E8] text-[#174D3A] border border-[#DDE4D8] hover:bg-[#DCEBDD] transition-colors text-xs font-bold flex items-center space-x-1"
             aria-label="Toggle navigation"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
